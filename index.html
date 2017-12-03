@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title>Wanderlust Hangman</title>
   <!-- Link to Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Raleway:200" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Raleway:200" rel="stylesheet">
   <!-- Link to reset CSS -->
   <link rel="stylesheet" href="assets/css/reset.css">
   <!--Link to custom CSS -->
@@ -14,7 +14,7 @@
 
 <body>
   <div class="header">
-    <h1>Wanderlust</h1>
+    <h1>WANDERLUST</h1>
     <h3> - a hangman game -</h3>
   </div>
   <div class="container">
@@ -25,9 +25,11 @@
       <div id="wrongLetters" class="gameplay-content"></div>
       <button type="button" id="new-game-1" class="btn">New Game</button>
     </div>
-    <div class="you-win" id="youWin">
-      <div id="letters"></div>
-      <button type="button" id="new-game-2" class="btn">New Game</button>
+    <div class="game-result" id="gameResult">
+        <h3 id="winLose"></h3>
+        <img id="gameResultImg" src="" alt="city of London"></img>
+        <div id='cityInfo' class="city-info"></div>
+        <button type="button" id="new-game-2" class="btn">New Game</button>
     </div>
   </div>
 

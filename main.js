@@ -106,11 +106,12 @@ var winLose = document.getElementById('winLose');
 var gameResult = document.getElementById('gameResult');
 var cityImage = document.getElementById('gameResultImg');
 var cityInfo = document.getElementById('cityInfo');
+var usableLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 
 //simple reset function to remove previously guessed letters and reset guesses to 15
 function reset() {
-  guesses = 15;
+  guesses = 10;
   wrongLetters = [];
   gameResult.style.display = 'none';
 }
@@ -146,25 +147,28 @@ function playHangman() {
   document.onkeyup = function(event) {
     // Determines which key was pressed, converts to uppercase
     var userGuess = (event.key).toUpperCase();
-
+  //Checks if they key pressed is a valid letter
+  if(usableLetters.indexOf(userGuess) != -1){
     //checks if the letter has already been guessed
-
-    if (wrongLetters.indexOf(userGuess) === -1) {
-      //loops through the wordBlanks to find if userGuess matches any letters
-      for (var i = 0; i < citySelect.name.length; i++) {
-        if (citySelect.name.charAt(i) === userGuess) {
-          wordBlanks[i] = userGuess;
-          hangmanWord.innerHTML = wordBlanks.join(" ");
-        }
-      }
-      //if the letter guessed doesn't appear in the word, remove 1 from guesses
-      if (citySelect.name.indexOf(userGuess) == -1) {
-        guesses--;
-        displayGuesses.innerHTML = "<p>guesses: " + guesses + "</p>"
-        wrongLetters.push(userGuess);
-        displayWrongLetters.innerHTML = "<p>wrong letters: " + wrongLetters.join(", ") + "</p>";
+  if (wrongLetters.indexOf(userGuess) === -1) {
+    //loops through the wordBlanks to find if userGuess matches any letters
+    for (var i = 0; i < citySelect.name.length; i++) {
+      if (citySelect.name.charAt(i) === userGuess) {
+        wordBlanks[i] = userGuess;
+        hangmanWord.innerHTML = wordBlanks.join(" ");
       }
     }
+    //if the letter guessed doesn't appear in the word, remove 1 from guesses
+    if (citySelect.name.indexOf(userGuess) == -1) {
+      guesses--;
+      displayGuesses.innerHTML = "<p>guesses: " + guesses + "</p>"
+      wrongLetters.push(userGuess);
+      displayWrongLetters.innerHTML = "<p>wrong letters: " + wrongLetters.join(", ") + "</p>";
+    }
+  }
+};
+
+
     //If guesses is equal to zero, display the "you lose" div
     if (guesses === 0) {
       gameResult.style.display = 'block';

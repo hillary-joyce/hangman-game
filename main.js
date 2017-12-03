@@ -170,7 +170,7 @@ function playHangman() {
       gameResult.style.display = 'block';
       winLose.innerHTML = "You Lose!";
       cityImage.src = "assets/images/you-lose.jpg";
-      cityDescription.innerHTML = "Don't give up, you'll get it next time!";
+      cityInfo.innerHTML = "<p>Don't give up, you'll get it next time!</p>";
     }
 
     //If all the letters are guessed correctly, display the "you win!" div with an image of the city guessed, and a sentence about the city. and add 1 to wins

@@ -37,7 +37,7 @@ html {
 }
 
 .header h3 {
-  font-size: 25px;
+  font-size: 20px;
   padding-bottom: 10px;
 }
 
@@ -83,7 +83,7 @@ html {
   border: 2px solid #071E30;
 }
 
-/************ WIN DIV ***************/
+/************ WIN/LOSE DIV ***************/
 .game-result {
   background:#f8f8f9;
   width: 600px;
@@ -124,4 +124,31 @@ html {
   margin: auto 10px;
 }
 
-/************** LOSE DIV **************/
+/********* MEDIA QUERIES ******/
+@media only screen and (max-width: 600px) {
+  /***** HEADER **********/
+  .header h1 {
+    font-size: 55px;
+  }
+
+  .header h3 {
+    font-size: 16px;
+    padding-bottom: 10px;
+  }
+  /***** GAMEPLAY CONTAINER *****/
+  .container, .game-result {
+    width: 100%;
+  }
+
+  .hangman-word {
+    font-size: 50px;
+  }
+
+  .btn {
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 45px;
+  }
+
+}
